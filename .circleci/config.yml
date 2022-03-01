@@ -1,0 +1,33 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+jobs:
+  build-and-unit-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: npm run test:cov
+      - store_artifacts:
+          path: coverage    
+  
+  build-and-e2e-test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: npm run test:e2e
+
+
+workflows:
+  build-and-unit-test:
+    jobs:
+      - build-and-unit-test
+  build-and-e2e-test:
+    jobs:
+      - build-and-e2e-test
+      
