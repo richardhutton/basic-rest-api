@@ -16,7 +16,7 @@ describe('PostsService', () => {
     expect(service).toBeDefined();
   });
 
-  it ('should trigger the build', () =>{
+  it ('should trigger the build again', () =>{
 
   });
 });
