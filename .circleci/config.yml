@@ -15,6 +15,7 @@ jobs:
           path: coverage    
       - codecov/upload:
           file: './coverage/clover.xml'
+          token: 32a40045-715f-4678-9742-400cd1bfc2a8
 
   build-and-e2e-test:
     executor:
