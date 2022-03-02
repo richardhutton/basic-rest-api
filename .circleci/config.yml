@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
-  coveralls: coveralls/coveralls@1.0.6
 jobs:
   build-and-unit-test:
     executor:
@@ -11,6 +10,8 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test:cov
+      - run: 
+          command: npm test -- --coverage    
       - coveralls/upload
       - store_artifacts:
           path: coverage    
