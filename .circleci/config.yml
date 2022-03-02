@@ -10,13 +10,9 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test:cov
-      - run: 
-          command: npm test -- --coverage    
-      - coveralls/upload
       - store_artifacts:
           path: coverage    
 
-  
   build-and-e2e-test:
     executor:
       name: node/default
